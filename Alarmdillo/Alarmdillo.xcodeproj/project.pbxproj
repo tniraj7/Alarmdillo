@@ -13,6 +13,8 @@
 		34266D78248A167000BFD8A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34266D76248A167000BFD8A0 /* Main.storyboard */; };
 		34266D7A248A167300BFD8A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34266D79248A167300BFD8A0 /* Assets.xcassets */; };
 		34266D7D248A167300BFD8A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34266D7B248A167300BFD8A0 /* LaunchScreen.storyboard */; };
+		34833BD9248BC1BC00E3AC96 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34833BD8248BC1BC00E3AC96 /* Group.swift */; };
+		34833BDB248BC1C700E3AC96 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34833BDA248BC1C700E3AC96 /* Alarm.swift */; };
 		34B96BA7248A7F96002B69B7 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B96BA6248A7F96002B69B7 /* GroupViewController.swift */; };
 		34B96BA9248A7FB2002B69B7 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B96BA8248A7FB2002B69B7 /* AlarmViewController.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +28,8 @@
 		34266D79248A167300BFD8A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34266D7C248A167300BFD8A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34266D7E248A167300BFD8A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34833BD8248BC1BC00E3AC96 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		34833BDA248BC1C700E3AC96 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		34B96BA6248A7F96002B69B7 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		34B96BA8248A7FB2002B69B7 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,15 +66,33 @@
 			children = (
 				34266D70248A167000BFD8A0 /* AppDelegate.swift */,
 				34266D72248A167000BFD8A0 /* SceneDelegate.swift */,
-				34B96BA8248A7FB2002B69B7 /* AlarmViewController.swift */,
-				34B96BA6248A7F96002B69B7 /* GroupViewController.swift */,
-				34266D74248A167000BFD8A0 /* ViewController.swift */,
+				34833BD7248BC19300E3AC96 /* Model */,
+				34833BD6248BC17300E3AC96 /* Controllers */,
 				34266D76248A167000BFD8A0 /* Main.storyboard */,
 				34266D79248A167300BFD8A0 /* Assets.xcassets */,
 				34266D7B248A167300BFD8A0 /* LaunchScreen.storyboard */,
 				34266D7E248A167300BFD8A0 /* Info.plist */,
 			);
 			path = Alarmdillo;
+			sourceTree = "<group>";
+		};
+		34833BD6248BC17300E3AC96 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				34B96BA8248A7FB2002B69B7 /* AlarmViewController.swift */,
+				34B96BA6248A7F96002B69B7 /* GroupViewController.swift */,
+				34266D74248A167000BFD8A0 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		34833BD7248BC19300E3AC96 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				34833BD8248BC1BC00E3AC96 /* Group.swift */,
+				34833BDA248BC1C700E3AC96 /* Alarm.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,7 +169,9 @@
 				34B96BA9248A7FB2002B69B7 /* AlarmViewController.swift in Sources */,
 				34B96BA7248A7F96002B69B7 /* GroupViewController.swift in Sources */,
 				34266D75248A167000BFD8A0 /* ViewController.swift in Sources */,
+				34833BD9248BC1BC00E3AC96 /* Group.swift in Sources */,
 				34266D71248A167000BFD8A0 /* AppDelegate.swift in Sources */,
+				34833BDB248BC1C700E3AC96 /* Alarm.swift in Sources */,
 				34266D73248A167000BFD8A0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
