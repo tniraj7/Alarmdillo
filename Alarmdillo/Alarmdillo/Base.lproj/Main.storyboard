@@ -71,7 +71,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name this group" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="v46-F6-Lg8">
-                                            <rect key="frame" x="0.0" y="11.5" width="414" height="21"/>
+                                            <rect key="frame" x="8" y="11.5" width="398" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                             <connections>
@@ -81,8 +81,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="v46-F6-Lg8" firstAttribute="centerY" secondItem="HUp-pK-crB" secondAttribute="centerY" id="ECC-Hb-6OF"/>
-                                        <constraint firstItem="v46-F6-Lg8" firstAttribute="leading" secondItem="HUp-pK-crB" secondAttribute="leading" id="mGW-73-YKS"/>
-                                        <constraint firstAttribute="trailing" secondItem="v46-F6-Lg8" secondAttribute="trailing" id="uDb-6X-gJE"/>
+                                        <constraint firstItem="v46-F6-Lg8" firstAttribute="leading" secondItem="HUp-pK-crB" secondAttribute="leading" constant="8" id="mGW-73-YKS"/>
+                                        <constraint firstAttribute="trailing" secondItem="v46-F6-Lg8" secondAttribute="trailing" constant="8" id="uDb-6X-gJE"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -94,26 +94,26 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8e-wF-Mcc">
-                                            <rect key="frame" x="0.0" y="11.5" width="42" height="21"/>
+                                            <rect key="frame" x="8" y="11.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4dH-Xf-21C">
-                                            <rect key="frame" x="365" y="6.5" width="51" height="31"/>
+                                            <rect key="frame" x="357" y="6.5" width="51" height="31"/>
                                             <connections>
                                                 <action selector="switchChanged:" destination="nvI-7D-XJQ" eventType="valueChanged" id="5Vq-tC-Ad5"/>
                                             </connections>
                                         </switch>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="l8e-wF-Mcc" firstAttribute="leading" secondItem="h0x-OB-3gA" secondAttribute="leading" id="FGd-Ug-SuI"/>
+                                        <constraint firstItem="l8e-wF-Mcc" firstAttribute="leading" secondItem="h0x-OB-3gA" secondAttribute="leading" constant="8" id="FGd-Ug-SuI"/>
                                         <constraint firstItem="l8e-wF-Mcc" firstAttribute="centerY" secondItem="h0x-OB-3gA" secondAttribute="centerY" id="Kdt-y6-y2A"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <constraints>
                                     <constraint firstItem="4dH-Xf-21C" firstAttribute="centerY" secondItem="YZP-ia-P1h" secondAttribute="centerY" id="4Yb-Pa-oVR"/>
-                                    <constraint firstAttribute="trailing" secondItem="4dH-Xf-21C" secondAttribute="trailing" id="Ue0-Rg-7Yp"/>
+                                    <constraint firstAttribute="trailing" secondItem="4dH-Xf-21C" secondAttribute="trailing" constant="8" id="Ue0-Rg-7Yp"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RightDetail" textLabel="c4g-Kz-6Dn" detailTextLabel="o5X-Lq-7Pt" style="IBUITableViewCellStyleValue1" id="hLv-nZ-8GK">
@@ -174,7 +174,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name this alarm" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="vdg-Ng-ERi">
-                                                    <rect key="frame" x="0.0" y="11.5" width="414" height="21"/>
+                                                    <rect key="frame" x="8" y="11.5" width="398" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                     <connections>
@@ -184,8 +184,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vdg-Ng-ERi" firstAttribute="centerY" secondItem="jx2-ho-Buh" secondAttribute="centerY" id="MZG-bt-KDX"/>
-                                                <constraint firstAttribute="trailing" secondItem="vdg-Ng-ERi" secondAttribute="trailing" id="Xlx-Fw-W8b"/>
-                                                <constraint firstItem="vdg-Ng-ERi" firstAttribute="leading" secondItem="jx2-ho-Buh" secondAttribute="leading" id="iBS-Hj-o8t"/>
+                                                <constraint firstAttribute="trailing" secondItem="vdg-Ng-ERi" secondAttribute="trailing" constant="8" id="Xlx-Fw-W8b"/>
+                                                <constraint firstItem="vdg-Ng-ERi" firstAttribute="leading" secondItem="jx2-ho-Buh" secondAttribute="leading" constant="8" id="iBS-Hj-o8t"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -197,7 +197,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a description" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="RLB-SB-Gx8">
-                                                    <rect key="frame" x="0.0" y="11.5" width="414" height="21"/>
+                                                    <rect key="frame" x="8" y="11.5" width="398" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                     <connections>
@@ -206,9 +206,9 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="RLB-SB-Gx8" firstAttribute="leading" secondItem="7WF-Cz-6Dk" secondAttribute="leading" id="N7G-JP-qp8"/>
+                                                <constraint firstItem="RLB-SB-Gx8" firstAttribute="leading" secondItem="7WF-Cz-6Dk" secondAttribute="leading" constant="8" id="N7G-JP-qp8"/>
                                                 <constraint firstItem="RLB-SB-Gx8" firstAttribute="centerY" secondItem="7WF-Cz-6Dk" secondAttribute="centerY" id="XrR-DF-EXX"/>
-                                                <constraint firstAttribute="trailing" secondItem="RLB-SB-Gx8" secondAttribute="trailing" id="s8I-3B-Ryg"/>
+                                                <constraint firstAttribute="trailing" secondItem="RLB-SB-Gx8" secondAttribute="trailing" constant="8" id="s8I-3B-Ryg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
