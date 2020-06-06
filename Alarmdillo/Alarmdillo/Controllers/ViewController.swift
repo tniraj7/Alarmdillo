@@ -16,10 +16,18 @@ class ViewController: UITableViewController {
         configureNavBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     private func configureNavBar() {
         let titleAttributes = [NSAttributedString.Key.font: UIFont(name: "Arial Rounded MT Bold", size: 20)]
         navigationController?.navigationBar.titleTextAttributes = titleAttributes as [NSAttributedString.Key : Any]
         title = "Alarmdillo"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addGroup))
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Groups", style: .plain, target: nil, action: nil)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,6 +64,30 @@ class ViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let groupToEdit: Group
+        if sender is Group {
+            groupToEdit = sender as! Group
+            
+        } else {
+            guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
+            groupToEdit = groups[selectedIndexPath.row]
+        }
+        
+        if let groupViewController = segue.destination as? GroupViewController {
+            groupViewController.group = groupToEdit
+        }
+        
+    }
+    
+    @objc private func addGroup() {
+        let newGroup = Group(name: "Name", playSound: true, enable: true, alarms: [])
+        groups.append(newGroup)
+        
+        performSegue(withIdentifier: "EditGroup", sender: newGroup)
     }
 }
 
