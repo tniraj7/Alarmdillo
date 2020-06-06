@@ -20,3 +20,16 @@ class AlarmViewController: UITableViewController {
     @IBAction func imageViewTapped(_ sender: Any) {
     }
 }
+
+extension AlarmViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        alarm.name = textField.text!
+        title = alarm.name
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
