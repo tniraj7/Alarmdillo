@@ -45,3 +45,16 @@ class GroupViewController: UITableViewController {
         tableView.deleteRows(at: [indexPath], with: .automatic )
     }
 }
+
+extension GroupViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        group.name = textField.text!
+        title = group.name
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
