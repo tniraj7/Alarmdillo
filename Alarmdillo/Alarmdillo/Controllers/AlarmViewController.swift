@@ -30,6 +30,7 @@ extension AlarmViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         alarm.name = textField.text!
+        alarm.caption = caption.text!
         title = alarm.name
     }
     
