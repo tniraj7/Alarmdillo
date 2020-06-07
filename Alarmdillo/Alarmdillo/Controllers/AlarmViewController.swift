@@ -19,6 +19,10 @@ class AlarmViewController: UITableViewController {
     }
     
     @IBAction func imageViewTapped(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.modalPresentationStyle = .formSheet
+        vc.delegate = self
+        present(vc, animated: true)
     }
 }
 
