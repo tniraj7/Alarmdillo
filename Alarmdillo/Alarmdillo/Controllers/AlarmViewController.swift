@@ -15,6 +15,7 @@ class AlarmViewController: UITableViewController {
     }
 
     @IBAction func datePickerChanged(_ sender: Any) {
+        alarm.time = datePicker.date
     }
     
     @IBAction func imageViewTapped(_ sender: Any) {
