@@ -68,13 +68,13 @@
 			children = (
 				34266D70248A167000BFD8A0 /* AppDelegate.swift */,
 				34266D72248A167000BFD8A0 /* SceneDelegate.swift */,
+				34A0D5F6248E804700314E03 /* Helper.swift */,
 				34833BD7248BC19300E3AC96 /* Model */,
 				34833BD6248BC17300E3AC96 /* Controllers */,
 				34266D76248A167000BFD8A0 /* Main.storyboard */,
 				34266D79248A167300BFD8A0 /* Assets.xcassets */,
 				34266D7B248A167300BFD8A0 /* LaunchScreen.storyboard */,
 				34266D7E248A167300BFD8A0 /* Info.plist */,
-				34A0D5F6248E804700314E03 /* Helper.swift */,
 			);
 			path = Alarmdillo;
 			sourceTree = "<group>";

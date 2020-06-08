@@ -39,3 +39,40 @@ extension AlarmViewController: UITextFieldDelegate {
         return true
     }
 }
+
+
+extension AlarmViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        dismiss(animated: true)
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        let fm = FileManager()
+        
+        if alarm.image.count > 0 {
+            do {
+                let currentImage = Helper.getDocumentsDirectory().appendingPathComponent(alarm.image)
+                if fm.fileExists(atPath: currentImage.path) {
+                    try fm.removeItem(at: currentImage)
+                }
+            } catch {
+                print("Failed to remove current image")
+            }
+            
+            do {
+                alarm.image = "\(UUID().uuidString).jpg"
+                let newPath =  Helper.getDocumentsDirectory ().appendingPathComponent(alarm.image)
+                let jpeg = image.jpegData(compressionQuality: 80)
+                try jpeg?.write(to: newPath)
+                
+            } catch {
+                 print("Failed to save new image")
+            }
+            
+            imageView.image = image
+            tapToSelectImage.isHidden = true
+        }
+        
+    }
+}
