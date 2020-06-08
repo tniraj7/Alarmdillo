@@ -293,7 +293,7 @@
                         <outlet property="caption" destination="RLB-SB-Gx8" id="0Od-ff-aYS"/>
                         <outlet property="datePicker" destination="L7N-7Z-ZSH" id="vib-0j-4mj"/>
                         <outlet property="imageView" destination="6D3-Ew-hcN" id="He5-pE-0gv"/>
-                        <outlet property="name" destination="jx2-ho-Buh" id="6K5-tn-x38"/>
+                        <outlet property="name" destination="vdg-Ng-ERi" id="N4R-EW-i4y"/>
                         <outlet property="tapToSelectImage" destination="G45-sk-fsF" id="lI2-zn-OCb"/>
                     </connections>
                 </tableViewController>

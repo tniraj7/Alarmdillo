@@ -4,7 +4,7 @@ class AlarmViewController: UITableViewController {
 
     var alarm: Alarm!
     
-    @IBOutlet weak var name: UIView!
+    @IBOutlet weak var name: UITextField!
     @IBOutlet weak var caption: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var imageView: UIImageView!
