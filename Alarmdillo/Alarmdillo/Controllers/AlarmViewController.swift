@@ -1,7 +1,7 @@
 import UIKit
 
-class AlarmViewController: UITableViewController {
-
+class AlarmViewController: UITableViewController, UINavigationControllerDelegate {
+    
     var alarm: Alarm!
     
     @IBOutlet weak var name: UITextField!
@@ -12,8 +12,19 @@ class AlarmViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = alarm.name
+        name.text = alarm.name
+        caption.text = alarm.caption
+        datePicker.date = alarm.time
+        
+        if alarm.image.count > 0 {
+            let imageFileName = Helper.getDocumentsDirectory().appendingPathComponent(alarm.image)
+            imageView.image = UIImage(contentsOfFile: imageFileName.path)
+            tapToSelectImage.isHidden = true
+        }
     }
-
+    
     @IBAction func datePickerChanged(_ sender: Any) {
         alarm.time = datePicker.date
     }
@@ -59,20 +70,21 @@ extension AlarmViewController: UIImagePickerControllerDelegate {
             } catch {
                 print("Failed to remove current image")
             }
-            
-            do {
-                alarm.image = "\(UUID().uuidString).jpg"
-                let newPath =  Helper.getDocumentsDirectory ().appendingPathComponent(alarm.image)
-                let jpeg = image.jpegData(compressionQuality: 80)
-                try jpeg?.write(to: newPath)
-                
-            } catch {
-                 print("Failed to save new image")
-            }
-            
-            imageView.image = image
-            tapToSelectImage.isHidden = true
         }
+        
+        do {
+            alarm.image = "\(UUID().uuidString).jpg"
+            let newPath =  Helper.getDocumentsDirectory ().appendingPathComponent(alarm.image)
+            let jpeg = image.jpegData(compressionQuality: 80)
+            try jpeg?.write(to: newPath)
+            
+        } catch {
+            print("Failed to save new image")
+        }
+        
+        imageView.image = image
+        tapToSelectImage.isHidden = true
+        
         
     }
 }
