@@ -13,7 +13,7 @@ class ViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadData()
+        load()
     }
     
     private func configureNavBar() {
@@ -91,22 +91,22 @@ class ViewController: UITableViewController {
     @objc func save() {
         do {
             let path = Helper.getDocumentsDirectory().appendingPathComponent("groups")
-            let data = try NSKeyedArchiver.archivedData(withRootObject: groups)
+            let data = try NSKeyedArchiver.archivedData(withRootObject: groups, requiringSecureCoding: false)
             try data.write(to: path)
         } catch {
             print("Failed to save data")
         }
     }
     
-    func loadData() {
+    func load() {
         do {
             let path = Helper.getDocumentsDirectory().appendingPathComponent("groups")
             let data = try Data(contentsOf: path)
-            
             groups = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Group] ?? [Group]()
         } catch {
              print("Failed to load data")
         }
+        tableView.reloadData()
     }
 }
 
