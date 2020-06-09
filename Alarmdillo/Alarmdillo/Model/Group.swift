@@ -11,8 +11,8 @@ class Group: NSObject, NSCoding {
     required init?(coder: NSCoder) {
         self.id        = coder.decodeObject(forKey: "id") as! String
         self.name      = coder.decodeObject(forKey: "name") as! String
-        self.playSound = coder.decodeObject(forKey: "playSound") as! Bool
-        self.enabled   = coder.decodeObject(forKey: "enabled") as! Bool
+        self.playSound = coder.decodeBool(forKey: "playSound")
+        self.enabled   = coder.decodeBool(forKey: "enabled")
         self.alarms    = coder.decodeObject(forKey: "alarms") as! [Alarm]
     }
     
