@@ -6,19 +6,14 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var group = Group(name: "Enabled group", playSound: true, enable: true, alarms: [])
-        groups.append(group)
-        
-        group = Group(name: "Disabled group", playSound: true, enable: false, alarms: [])
-        groups.append(group)
-        
         configureNavBar()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(save), name: Notification.Name("save"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        loadData()
     }
     
     private func configureNavBar() {
@@ -42,6 +37,8 @@ class ViewController: UITableViewController {
         
         groups.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        save()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,6 +85,28 @@ class ViewController: UITableViewController {
         groups.append(newGroup)
         
         performSegue(withIdentifier: "EditGroup", sender: newGroup)
+        save()
+    }
+    
+    @objc func save() {
+        do {
+            let path = Helper.getDocumentsDirectory().appendingPathComponent("groups")
+            let data = try NSKeyedArchiver.archivedData(withRootObject: groups)
+            try data.write(to: path)
+        } catch {
+            print("Failed to save data")
+        }
+    }
+    
+    func loadData() {
+        do {
+            let path = Helper.getDocumentsDirectory().appendingPathComponent("groups")
+            let data = try Data(contentsOf: path)
+            
+            groups = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Group] ?? [Group]()
+        } catch {
+             print("Failed to load data")
+        }
     }
 }
 
