@@ -9,11 +9,11 @@ class Alarm: NSObject, NSCoding {
     var image   : String
     
     required init?(coder: NSCoder) {
-        self.id = coder.decodeObject(forKey: "id") as! String
-        self.name = coder.decodeObject(forKey: "name") as! String
+        self.id      = coder.decodeObject(forKey: "id") as! String
+        self.name    = coder.decodeObject(forKey: "name") as! String
         self.caption = coder.decodeObject(forKey: "caption") as! String
-        self.time = coder.decodeObject(forKey: "time") as! Date
-        self.image = coder.decodeObject(forKey: "image") as! String
+        self.time    = coder.decodeObject(forKey: "time") as! Date
+        self.image   = coder.decodeObject(forKey: "image") as! String
     }
     
     func encode(with coder: NSCoder) {
@@ -25,10 +25,10 @@ class Alarm: NSObject, NSCoding {
     }
     
     init(name: String, caption: String, time: Date, image: String) {
-        self.id = UUID().uuidString
-        self.name = name
+        self.id      = UUID().uuidString
+        self.name    = name
         self.caption = caption
-        self.time = time
-        self.image = image
+        self.time    = time
+        self.image   = image
     }
 }

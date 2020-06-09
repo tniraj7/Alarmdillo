@@ -9,11 +9,11 @@ class Group: NSObject, NSCoding {
     var alarms    : [Alarm]
     
     required init?(coder: NSCoder) {
-        self.id = coder.decodeObject(forKey: "id") as! String
-        self.name = coder.decodeObject(forKey: "name") as! String
+        self.id        = coder.decodeObject(forKey: "id") as! String
+        self.name      = coder.decodeObject(forKey: "name") as! String
         self.playSound = coder.decodeObject(forKey: "playSound") as! Bool
-        self.enabled = coder.decodeObject(forKey: "enabled") as! Bool
-        self.alarms = coder.decodeObject(forKey: "alarms") as! [Alarm]
+        self.enabled   = coder.decodeObject(forKey: "enabled") as! Bool
+        self.alarms    = coder.decodeObject(forKey: "alarms") as! [Alarm]
     }
     
     func encode(with coder: NSCoder) {
@@ -28,7 +28,7 @@ class Group: NSObject, NSCoding {
         self.id        = UUID().uuidString
         self.name      = name
         self.playSound = playSound
-        self.enabled    = enable
+        self.enabled   = enable
         self.alarms    = alarms
     }
 }
