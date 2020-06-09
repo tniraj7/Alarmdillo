@@ -27,6 +27,7 @@ class AlarmViewController: UITableViewController, UINavigationControllerDelegate
     
     @IBAction func datePickerChanged(_ sender: Any) {
         alarm.time = datePicker.date
+        save()
     }
     
     @IBAction func imageViewTapped(_ sender: Any) {
@@ -34,6 +35,10 @@ class AlarmViewController: UITableViewController, UINavigationControllerDelegate
         vc.modalPresentationStyle = .formSheet
         vc.delegate = self
         present(vc, animated: true)
+    }
+    
+    func save() {
+        NotificationCenter.default.post(name: Notification.Name("save"), object: nil)
     }
 }
 
@@ -43,6 +48,7 @@ extension AlarmViewController: UITextFieldDelegate {
         alarm.name = textField.text!
         alarm.caption = caption.text!
         title = alarm.name
+        save()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -78,6 +84,7 @@ extension AlarmViewController: UIImagePickerControllerDelegate {
             let jpeg = image.jpegData(compressionQuality: 80)
             try jpeg?.write(to: newPath)
             
+            save()
         } catch {
             print("Failed to save new image")
         }

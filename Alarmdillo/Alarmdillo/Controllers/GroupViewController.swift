@@ -100,6 +100,7 @@ class GroupViewController: UITableViewController {
         
         group.alarms.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic )
+        save()
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -114,12 +115,18 @@ class GroupViewController: UITableViewController {
         } else {
             group.enabled = sender.isOn
         }
+        save()
+    }
+    
+    func save() {
+        NotificationCenter.default.post(name: Notification.Name("save"), object: nil)
     }
     
     @objc private func addAlarm() {
         let newAlarm = Alarm(name: "Name this Alarm", caption: "This is description", time: Date(), image: "")
         group.alarms.append(newAlarm)
         performSegue(withIdentifier: "EditAlarm", sender: newAlarm)
+        save()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -143,6 +150,7 @@ extension GroupViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         group.name = textField.text!
         title = group.name
+        save()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
