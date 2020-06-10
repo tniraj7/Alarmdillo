@@ -1,4 +1,5 @@
 import UIKit
+import UserNotifications
 
 class ViewController: UITableViewController {
 
@@ -96,7 +97,19 @@ class ViewController: UITableViewController {
         } catch {
             print("Failed to save data")
         }
+        
+        updateNotifications()
     }
+    
+    func updateNotifications() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { [unowned self] (granted, error) in
+            if granted {
+                self.createNotifications()
+            }
+        }
+    }
+
     
     func load() {
         do {
