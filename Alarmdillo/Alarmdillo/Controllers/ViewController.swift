@@ -128,6 +128,30 @@ class ViewController: UITableViewController {
         }
     }
     
+    func createNotificationsRequest(group: Group, alarm: Alarm) -> UNNotificationRequest {
+        
+        let content = UNMutableNotificationContent()
+        content.title = alarm.name
+        content.body = alarm.caption
+        content.categoryIdentifier = "alarm"
+        content.userInfo = ["group": group.id, "alarm": alarm.id]
+        if group.playSound {
+            content.sound = UNNotificationSound.default
+        }
+        content.attachments = createNotificationAttachments(alarm: alarm)
+        
+        let calendar = Calendar.current
+        var dateComponents = DateComponents()
+        dateComponents.hour = calendar.component(.hour, from: alarm.time)
+        dateComponents.minute = calendar.component(.minute, from: alarm.time)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        return request
+    }
+    
     func load() {
         do {
             let path = Helper.getDocumentsDirectory().appendingPathComponent("groups")
