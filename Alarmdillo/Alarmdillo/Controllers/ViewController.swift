@@ -109,7 +109,24 @@ class ViewController: UITableViewController {
             }
         }
     }
-
+    
+    func createNotifications() {
+        
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        
+        for group in groups {
+            guard group.enabled == true else { return }
+            for alarm in group.alarms {
+                let notification = createNotificationsRequest(group: group, alarm: alarm)
+                center.add(notification) { (error) in
+                    if let error = error {
+                        print("Error in scheduling notifications: \(error)")
+                    }
+                }
+            }
+        }
+    }
     
     func load() {
         do {
