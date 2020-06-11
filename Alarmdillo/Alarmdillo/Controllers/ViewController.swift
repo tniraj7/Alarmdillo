@@ -177,6 +177,16 @@ class ViewController: UITableViewController {
         }
         tableView.reloadData()
     }
+    
+    func display(group groupID: String) {
+        _ = navigationController?.popViewController(animated: true)
+        for group in groups {
+            if group.id == groupID {
+                performSegue(withIdentifier: "EditGroup", sender: group)
+                return
+            }
+        }
+    }
 }
 
 extension ViewController: UNUserNotificationCenterDelegate {
