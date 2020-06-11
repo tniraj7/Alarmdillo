@@ -152,6 +152,21 @@ class ViewController: UITableViewController {
         return request
     }
     
+    func createNotificationAttachments(alarm: Alarm) -> [UNNotificationAttachment] { 
+        guard alarm.image.count > 0 else  { return [] }
+        let fm = FileManager.default
+        do {
+            let imageURL = Helper.getDocumentsDirectory().appendingPathComponent(alarm.image)
+            let copyURL = Helper.getDocumentsDirectory().appendingPathComponent("\(UUID().uuidString).jpg")
+            try fm.copyItem(at: imageURL, to: copyURL)
+            let attachment = try UNNotificationAttachment(identifier: UUID().uuidString, url: copyURL)
+            return [attachment]
+        } catch {
+            print("Failed to attach alarm image: \(error)")
+            return []
+        }
+    }
+    
     func load() {
         do {
             let path = Helper.getDocumentsDirectory().appendingPathComponent("groups")
