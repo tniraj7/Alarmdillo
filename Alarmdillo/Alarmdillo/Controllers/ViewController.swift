@@ -200,6 +200,18 @@ class ViewController: UITableViewController {
         save()
         load()
     }
+    
+    func rename(group groupID: String, newName: String) {
+        _ = navigationController?.popViewController(animated: true)
+        for group in groups {
+            if group.id == groupID {
+                group.name = newName
+                return
+            }
+        }
+        save()
+        load()
+    }
 }
 
 extension ViewController: UNUserNotificationCenterDelegate {
