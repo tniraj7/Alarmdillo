@@ -187,6 +187,19 @@ class ViewController: UITableViewController {
             }
         }
     }
+    
+    func destroy(group groupID: String) {
+        _ = navigationController?.popToRootViewController(animated: true)
+        
+        for (index, group) in groups.enumerated() {
+            if group.id == groupID {
+                groups.remove(at: index)
+                break
+            }
+        }
+        save()
+        load()
+    }
 }
 
 extension ViewController: UNUserNotificationCenterDelegate {
