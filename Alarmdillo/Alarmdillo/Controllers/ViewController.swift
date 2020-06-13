@@ -215,8 +215,45 @@ class ViewController: UITableViewController {
 }
 
 extension ViewController: UNUserNotificationCenterDelegate {
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let userInfo = response.notification.request.content.userInfo
+        
+        if let groupID = userInfo["group"] as? String {
+            
+            switch response.actionIdentifier {
+                
+            case UNNotificationDefaultActionIdentifier:
+                print("Default Indentifier")
+                
+            case UNNotificationDismissActionIdentifier:
+                print("Dismiss Indentifier")
+                
+            case "show":
+                display(group: groupID)
+                break
+                
+            case "destroy":
+                destroy(group: groupID)
+                break
+                
+            case "rename":
+                
+                if let textResponse = response as? UNTextInputNotificationResponse {
+                    rename(group: groupID, newName: textResponse.userText)
+                }
+                break
+
+            default:
+                break
+            }
+        }
+        completionHandler()
     }
 }
 
